@@ -155,7 +155,7 @@ run(host="0.0.0.0")
 ```
 
 <a name="9ef65e5e"></a>
-### 2.12执行
+### 2.2执行
 将index.html和index.py上传到树莓派某个文件夹下面，执行python3 index.py
 
 <a name="3ef1ca79"></a>
