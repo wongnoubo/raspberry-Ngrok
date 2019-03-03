@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="static/images/control.png" rel="shortcut icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>远程控制</title>
+    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
+    <style type="text/css">
+        .page-header { margin: 20px 0; border-bottom: 1px solid #eee; padding-bottom: 0; text-align: center; }
+        .btn-item { text-align: center; }
+        i { margin-right: 3px; display: inline-block; }
+        h1 { text-align: center; }
+        .tip { font-weight: bold; color: black; }
+        .lead { font-size: small; }
+        th{
+            text-align:center;/** 设置水平方向居中 */
+            vertical-align:middle/** 设置垂直方向居中 */
+        }
+        td{
+             text-align:center;/** 设置水平方向居中 */
+             vertical-align:middle/** 设置垂直方向居中 */
+         }
+
+    </style>
+</head>
+<body>
+<div class="container" style="position: relative;top: 15%;width: 80%;margin-left: 8%">
+    <div class="page-header">
+        <h3>远程控制中心</h3>
+        <p class="lead">
+            用于控制连接到树莓派上的家电
+        </p>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            设备</div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>空调</th>
+                    <th>卧室灯</th>
+                    <th>排气扇</th>
+                    <th>冰箱</th>
+                    <th>电饭煲</th>
+                    <th>加湿器</th>
+                    <th>窗帘</th>
+                    <th>电视机</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="kongtiaokai">
+                            <i class="fa fa-refresh"></i>空调开</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="woshidengkai">
+                            <i class="fa fa-refresh"></i>卧室灯开</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="paiqishankai">
+                            <i class="fa fa-refresh"></i>排气扇开</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="bingxinagkai">
+                            <i class="fa fa-refresh"></i>冰箱开</button>
+                    </td>
+                    <td>
+                    <button type="button" class="btn btn-primary btn-trigger" id="dianfanbaokai">
+                        <i class="fa fa-refresh"></i>电饭煲开</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="jiashiqikai">
+                            <i class="fa fa-refresh"></i>加湿器开</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="chuangliankai">
+                            <i class="fa fa-refresh"></i>窗帘开</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-trigger" id="dianshijikai">
+                            <i class="fa fa-refresh"></i>电视机开</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <button type="button" class="btn btn-danger btn-trigger" id="kongtiaoguan">
+                        <i class="fa fa-power-off"></i>空调关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="woshidengguan">
+                            <i class="fa fa-power-off"></i>卧室灯关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="paiqishanguan">
+                            <i class="fa fa-power-off"></i>排气扇关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="bingxiangguan">
+                            <i class="fa fa-power-off"></i>冰箱关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="dianfanbaoguan">
+                            <i class="fa fa-power-off"></i>电饭煲关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="jiashiqiguan">
+                            <i class="fa fa-power-off"></i>加湿器关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="chuanglianguan">
+                            <i class="fa fa-power-off"></i>窗帘关</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-trigger" id="dianshijiguan">
+                            <i class="fa fa-power-off"></i>电视机关</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                $(function () {
+                    $(".btn-trigger").click(function (){
+                        var text = $(this).text().replace(/ /g, "").replace(/\n/g, "").replace(/\r/g, "").replace(/\t/g, "");
+                        var cmd = "";
+                        switch(text){
+                            case "空调开":
+                                cmd = "空调开";
+                                break;
+                            case "空调关":
+                                cmd = "空调关";
+                                break;
+                            case "卧室灯开":
+                                cmd = "卧室灯开";
+                                break;
+                            case "卧室灯关":
+                                cmd = "卧室灯关";
+                                break;
+                            case "排气扇开":
+                                cmd = "排气扇开";
+                                break;
+                            case "排气扇关":
+                                cmd = "排气扇关";
+                                break;
+                            case "冰箱开":
+                                cmd = "冰箱开";
+                                break;
+                            case "冰箱关":
+                                cmd = "冰箱关";
+                                break;
+                            case "电饭煲开":
+                                cmd = "电饭煲开";
+                                break;
+                            case "电饭煲关":
+                                cmd = "电饭煲关";
+                                break;
+                            case "加湿器开":
+                                cmd = "加湿器开";
+                                break;
+                            case "加湿器关":
+                                cmd = "加湿器关";
+                                break;
+                            case "窗帘开":
+                                cmd = "窗帘开";
+                                break;
+                            case "窗帘关":
+                                cmd = "窗帘关";
+                                break;
+                            case "电视机开":
+                                cmd = "电视机开";
+                                break;
+                            case "电视机关":
+                                cmd = "电视机关";
+                                break;
+                        }
+                        if(confirm("确定要执行该命令吗？")){
+				$.post("/cmd",cmd,function(data,status){});
+                        }
+                    });
+                })
+            </script>
+        </div>
+    </div>
+</div>
+</body>
+</html>
