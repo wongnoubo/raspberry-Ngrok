@@ -85,31 +85,31 @@
                 </tr>
                 <tr>
                     <td>
-                    <button type="button" class="btn btn-danger btn-trigger" id="kongtiaoguan">
+                    <button type="button" disabled="disabled" class="btn btn-danger btn-trigger" id="kongtiaoguan">
                         <i class="fa fa-power-off"></i>空调关</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="woshidengguan">
+                        <button type="button"  disabled="disabled" class="btn btn-danger btn-trigger" id="woshidengguan">
                             <i class="fa fa-power-off"></i>卧室灯关</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="paiqishanguan">
+                        <button type="button" disabled="disabled" class="btn btn-danger btn-trigger" id="paiqishanguan">
                             <i class="fa fa-power-off"></i>排气扇关</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="bingxiangguan">
+                        <button type="button" disabled="disabled" class="btn btn-danger btn-trigger" id="bingxiangguan">
                             <i class="fa fa-power-off"></i>冰箱关</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="dianfanbaoguan">
+                        <button type="button" disabled="disabled" class="btn btn-danger btn-trigger" id="dianfanbaoguan">
                             <i class="fa fa-power-off"></i>电饭煲关</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="jiashiqiguan">
+                        <button type="button" disabled="disabled" class="btn btn-danger btn-trigger" id="jiashiqiguan">
                             <i class="fa fa-power-off"></i>加湿器关</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="chuanglianguan">
+                        <button type="button" disabled="disabled" class="btn btn-danger btn-trigger" id="chuanglianguan">
                             <i class="fa fa-power-off"></i>窗帘关</button>
                     </td>
                 </tr>
@@ -122,46 +122,74 @@
                         var cmd = "";
                         switch(text){
                             case "空调开":
+                                var temp = document.getElementById("kongtiaoguan");
+                                temp.disabled=false;
                                 cmd = "空调开";
                                 break;
                             case "空调关":
                                 cmd = "空调关";
+                                var temp = document.getElementById("kongtiaoguan");
+                                temp.disabled=true;
                                 break;
                             case "卧室灯开":
+                                var temp = document.getElementById("woshidengguan");
+                                temp.disabled=false;
                                 cmd = "卧室灯开";
                                 break;
                             case "卧室灯关":
                                 cmd = "卧室灯关";
+                                var temp = document.getElementById("woshidengguan");
+                                temp.disabled=true;
                                 break;
                             case "排气扇开":
+                                var temp = document.getElementById("paiqishanguan");
+                                temp.disabled=false;
                                 cmd = "排气扇开";
                                 break;
                             case "排气扇关":
+                                var temp = document.getElementById("paiqishanguan");
+                                temp.disabled=true;
                                 cmd = "排气扇关";
                                 break;
                             case "冰箱开":
+                                var temp = document.getElementById("bingxiangguan");
+                                temp.disabled=false;
                                 cmd = "冰箱开";
                                 break;
                             case "冰箱关":
                                 cmd = "冰箱关";
+                                var temp = document.getElementById("bingxiangguan");
+                                temp.disabled=true;
                                 break;
                             case "电饭煲开":
+                                var temp = document.getElementById("dianfanbaoguan");
+                                temp.disabled=false;
                                 cmd = "电饭煲开";
                                 break;
                             case "电饭煲关":
                                 cmd = "电饭煲关";
+                                var temp = document.getElementById("dianfanbaoguan");
+                                temp.disabled=true;
                                 break;
                             case "加湿器开":
+                                var temp = document.getElementById("jiashiqiguan");
+                                temp.disabled=false;
                                 cmd = "加湿器开";
                                 break;
                             case "加湿器关":
                                 cmd = "加湿器关";
+                                var temp = document.getElementById("jiashiqiguan");
+                                temp.disabled=true;
                                 break;
                             case "窗帘开":
+                                var temp = document.getElementById("chuanglianguan");
+                                temp.disabled=false;
                                 cmd = "窗帘开";
                                 break;
                             case "窗帘关":
                                 cmd = "窗帘关";
+                                var temp = document.getElementById("chuanglianguan");
+                                temp.disabled=true;
                                 break;
                         }
                         if(confirm("确定要执行该命令吗？")){
