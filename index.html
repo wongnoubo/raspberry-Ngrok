@@ -50,7 +50,6 @@
                     <th>电饭煲</th>
                     <th>加湿器</th>
                     <th>窗帘</th>
-                    <th>电视机</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -83,10 +82,6 @@
                         <button type="button" class="btn btn-primary btn-trigger" id="chuangliankai">
                             <i class="fa fa-refresh"></i>窗帘开</button>
                     </td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-trigger" id="dianshijikai">
-                            <i class="fa fa-refresh"></i>电视机开</button>
-                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -116,10 +111,6 @@
                     <td>
                         <button type="button" class="btn btn-danger btn-trigger" id="chuanglianguan">
                             <i class="fa fa-power-off"></i>窗帘关</button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-trigger" id="dianshijiguan">
-                            <i class="fa fa-power-off"></i>电视机关</button>
                     </td>
                 </tr>
                 </tbody>
@@ -171,12 +162,6 @@
                                 break;
                             case "窗帘关":
                                 cmd = "窗帘关";
-                                break;
-                            case "电视机开":
-                                cmd = "电视机开";
-                                break;
-                            case "电视机关":
-                                cmd = "电视机关";
                                 break;
                         }
                         if(confirm("确定要执行该命令吗？")){
